@@ -4,3 +4,8 @@
         Preprocessor
     </h1>
 </div>
+
+## License
+<a href="./LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"/>
+</a>
