@@ -6,7 +6,7 @@
   "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf ./build/*",
-    "build": "rimraf ./build/* && swc ./src -d ./build && tsc-alias -f ./build && tsc"
+    "build": "rimraf ./build/* && swc ./src -d ./build && tsc && tsc-alias -f ./build"
   },
   "types": "./build/index.d.ts",
   "files": [
