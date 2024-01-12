@@ -5,7 +5,9 @@
     "moduleResolution": "bundler",
     "outDir": "./build",
     "baseUrl": "./src",
-    "paths": {},
+    "paths": {
+      "$internal/*": [ "./internal/*" ]
+    },
     "declaration": true,
     "emitDeclarationOnly": true,
     "skipLibCheck": true,
