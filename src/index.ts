@@ -7,11 +7,9 @@ import { preprocessor } from "$internal/preprocessor";
 import type { PreprocessorGroup } from "svelte/compiler";
 import type { PaperfeelOptions } from "$internal/preprocessor";
 
-// #region Types
 export type {
     PaperfeelOptions
 };
-// #endregion
 
 /**
     Paperfeel preprocessor for SvelteKit.

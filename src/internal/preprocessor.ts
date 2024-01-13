@@ -1,7 +1,6 @@
 import type { PreprocessorGroup } from "svelte/compiler";
 import type { VitePreprocessOptions } from "@sveltejs/vite-plugin-svelte";
 
-// #region Types
 /**
     Paperfeel preprocessor options.
 */
@@ -11,7 +10,6 @@ export type PaperfeelOptions = {
     */
     svelte?: VitePreprocessOptions;
 };
-// #endregion
 
 /**
     Paperfeel preprocessor.
