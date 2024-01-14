@@ -30,9 +30,13 @@ export const createMarkdownProcessor = (plugins?: PaperfeelOptions["plugins"]) =
     const processor = unified()
         .use(remarkParse)
         .use(remarkUserPlugins)
-        .use(remarkRehype)
+        .use(remarkRehype, {
+            allowDangerousHtml: true
+        })
         .use(rehypeUserPlugins)
-        .use(rehypeStringify);
+        .use(rehypeStringify, {
+            allowDangerousHtml: true
+        });
 
     return processor;
 };
