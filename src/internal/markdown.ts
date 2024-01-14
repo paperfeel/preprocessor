@@ -9,7 +9,7 @@ import type { PaperfeelOptions } from "$internal/preprocessor";
 /**
     Filters user plugins.
 */
-const filterPlugins = ( plugins: PaperfeelOptions["plugins"], filter: string) => {
+const filterPlugins = (plugins: PaperfeelOptions["plugins"], filter: string) => {
     if(!plugins) {
         return [];
     }
