@@ -26,6 +26,7 @@
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "gray-matter": "^4.0.3",
     "hast-util-raw": "^9.0.1",
+    "hast-util-select": "^6.0.2",
     "rehype-stringify": "^10.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
@@ -39,7 +40,6 @@
     "@types/hast": "^3.0.3",
     "rimraf": "^5.0.5",
     "tsc-alias": "^1.8.8",
-    "typescript": "^5.3.3",
-    "unist-util-select": "^5.1.0"
+    "typescript": "^5.3.3"
   }
 }
