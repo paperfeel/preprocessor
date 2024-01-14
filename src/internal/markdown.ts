@@ -9,10 +9,7 @@ import type { PaperfeelOptions } from "$internal/preprocessor";
 /**
     Filters user plugins.
 */
-const filterPlugins = (
-    plugins: PaperfeelOptions["plugins"],
-    filter: string
-) => {
+const filterPlugins = ( plugins: PaperfeelOptions["plugins"], filter: string) => {
     if(!plugins) {
         return [];
     }
@@ -26,9 +23,7 @@ const filterPlugins = (
 /**
     Creates an instance of a Markdown processor.
 */
-export const createMarkdownProcessor = (
-    plugins?: PaperfeelOptions["plugins"]
-) => {
+export const createMarkdownProcessor = (plugins?: PaperfeelOptions["plugins"]) => {
     const remarkUserPlugins = filterPlugins(plugins, "remark");
     const rehypeUserPlugins = filterPlugins(plugins, "rehype");
 
