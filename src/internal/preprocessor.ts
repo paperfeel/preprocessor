@@ -12,7 +12,7 @@ export type PaperfeelOptions = {
     plugins?: (Plugin | [ Plugin, PluginSettings ])[];
 
     /**
-        List of [selectors](https://github.com/syntax-tree/unist-util-select?tab=readme-ov-file#support)
+        List of [selectors](https://github.com/syntax-tree/hast-util-select?tab=readme-ov-file#support)
         for nodes in which curly braces must be escaped.
     */
     escape?: string[];
