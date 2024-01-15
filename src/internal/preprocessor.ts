@@ -12,6 +12,12 @@ export type PaperfeelOptions = {
     plugins?: (Plugin | [ Plugin, PluginSettings ])[];
 
     /**
+        List of [selectors](https://github.com/syntax-tree/unist-util-select?tab=readme-ov-file#support)
+        for nodes in which curly braces must be escaped.
+    */
+    escape?: string[];
+
+    /**
         Options passed to `@sveltejs/vite-plugin-svelte`.
     */
     svelte?: VitePreprocessOptions;
