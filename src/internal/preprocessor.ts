@@ -21,7 +21,7 @@ export type PaperfeelOptions = {
     Paperfeel preprocessor.
 */
 export const preprocessor = (
-    options?: Omit<PaperfeelOptions, "svelte">
+    options: Omit<PaperfeelOptions, "svelte"> = {}
 ): PreprocessorGroup => {
     return {
         name: "paperfeel"
