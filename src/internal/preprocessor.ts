@@ -1,3 +1,6 @@
+import { createMarkdownProcessor } from "$internal/markdown";
+
+// Types
 import type { PreprocessorGroup } from "svelte/compiler";
 import type { VitePreprocessOptions } from "@sveltejs/vite-plugin-svelte";
 import type { Plugin, Settings as PluginSettings } from "unified";
@@ -29,7 +32,22 @@ export type PaperfeelOptions = {
 export const preprocessor = (
     options: Omit<PaperfeelOptions, "svelte"> = {}
 ): PreprocessorGroup => {
+    const markdownProcessor = createMarkdownProcessor(options);
+
     return {
-        name: "paperfeel"
+        name: "paperfeel",
+        async markup({ filename, content }) {
+            if(!filename?.endsWith(".md")) {
+                return;
+            }
+
+            // TODO gray-matter
+
+            const output = await markdownProcessor.process(content);
+            
+            return {
+                code: output.value.toString()
+            };
+        }
     };
 };
