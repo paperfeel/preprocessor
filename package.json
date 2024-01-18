@@ -25,7 +25,6 @@
   "dependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "gray-matter": "^4.0.3",
-    "hast-util-from-html": "^2.0.1",
     "hast-util-select": "^6.0.2",
     "htmlparser2": "^9.1.0",
     "rehype-stringify": "^10.0.0",
