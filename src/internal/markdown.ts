@@ -3,6 +3,10 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 
+// Internal
+import { rehypeRaw } from "$internal/plugins/rehypeRaw";
+import { rehypeEscapeBraces } from "$internal/plugins/rehypeEscapeBraces";
+
 // Types
 import type { PaperfeelOptions } from "$internal/preprocessor";
 
@@ -23,7 +27,11 @@ const filterPlugins = (plugins: PaperfeelOptions["plugins"], filter: string) => 
 /**
     Creates an instance of a Markdown processor.
 */
-export const createMarkdownProcessor = (plugins?: PaperfeelOptions["plugins"]) => {
+export const createMarkdownProcessor = (
+    options: Pick<PaperfeelOptions, "plugins" | "escape">
+) => {
+    const { plugins, escape } = options;
+
     const remarkUserPlugins = filterPlugins(plugins, "remark");
     const rehypeUserPlugins = filterPlugins(plugins, "rehype");
 
@@ -33,7 +41,14 @@ export const createMarkdownProcessor = (plugins?: PaperfeelOptions["plugins"]) =
         .use(remarkRehype, {
             allowDangerousHtml: true
         })
+        .use(rehypeRaw)
         .use(rehypeUserPlugins)
+        .use(rehypeEscapeBraces, {
+            selectors: [
+                "code",
+                ...(Array.isArray(escape) ? escape : [])
+            ]
+        })
         .use(rehypeStringify, {
             allowDangerousHtml: true
         });
