@@ -3,7 +3,12 @@
     <h1>
         Preprocessor
     </h1>
+    <p>
+        Paperfeel preprocessor for SvelteKit.
+    </p>
 </div>
+
+<img src="https://raw.githubusercontent.com/paperfeel/.github/main/profile/seperator.png" alt="Paperfeel"/>
 
 ## License
 <a href="./LICENSE">
