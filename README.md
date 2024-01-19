@@ -2,10 +2,6 @@
     <img src="https://raw.githubusercontent.com/paperfeel/.github/main/profile/paperfeel.png" alt="Paperfeel"/>
 </div>
 
-<div align="center">
-    <img src="https://raw.githubusercontent.com/paperfeel/.github/main/profile/seperator.png" alt="Seperator"/>
-</div>
-
 ## About
 This package is a SvelteKit preprocessor that allows you to write Svelte in Markdown files.
 
