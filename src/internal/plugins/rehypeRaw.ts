@@ -1,7 +1,5 @@
+import { fromHtml } from "hast-util-from-html";
 import { visit } from "unist-util-visit";
-
-// Internal
-import { parseRaw } from "$internal/utils/parseRaw";
 
 // Types
 import type { BuildVisitor } from "unist-util-visit";
@@ -16,13 +14,11 @@ export const rehypeRaw = () => {
             return;
         }
 
-        const tree = parseRaw(node.value);
+        const { children } = fromHtml(node.value, {
+            fragment: true
+        });
 
-        if(!tree) {
-            return;
-        }
-
-        parent.children.splice(i, 1, ...tree);
+        parent.children.splice(i, 1, ...children);
     };
 
     return (tree: Root) => {
