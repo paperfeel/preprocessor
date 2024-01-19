@@ -1,10 +1,10 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
 
 // Internal
-import { rehypeRaw } from "$internal/plugins/rehypeRaw";
 import { rehypeEscapeBraces } from "$internal/plugins/rehypeEscapeBraces";
 
 // Types
