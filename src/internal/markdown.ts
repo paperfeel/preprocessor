@@ -5,6 +5,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
 
 // Internal
+import { rehypeComponents } from "$internal/plugins/rehypeComponents";
 import { rehypeEscapeBraces } from "$internal/plugins/rehypeEscapeBraces";
 
 // Types
@@ -42,6 +43,7 @@ export const createMarkdownProcessor = (
             allowDangerousHtml: true
         })
         .use(rehypeRaw)
+        .use(rehypeComponents)
         .use(rehypeUserPlugins)
         .use(rehypeEscapeBraces, {
             selectors: [
