@@ -6,7 +6,8 @@
     "outDir": "./build",
     "baseUrl": "./src",
     "paths": {
-      "$internal/*": [ "./internal/*" ]
+      "$internal/*": [ "./internal/*" ],
+      "$utils/*": [ "./utils/*" ]
     },
     "declaration": true,
     "emitDeclarationOnly": true,
