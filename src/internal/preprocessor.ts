@@ -17,6 +17,7 @@ export type PaperfeelOptions = {
     /**
         List of [selectors](https://github.com/syntax-tree/hast-util-select?tab=readme-ov-file#support)
         for nodes in which curly braces must be escaped.
+        The content of `code` nodes is automatically escaped by this preprocessor.
     */
     escape?: string[];
 
