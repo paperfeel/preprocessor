@@ -12,6 +12,9 @@
   "files": [
     "/build"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "homepage": "https://github.com/paperfeel/preprocessor#readme",
   "repository": {
     "type": "git",
