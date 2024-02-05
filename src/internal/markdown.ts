@@ -6,6 +6,7 @@ import rehypeStringify from "rehype-stringify";
 
 // Internal
 import { rehypeComponents } from "$internal/plugins/rehypeComponents";
+import { rehypeFrontmatter } from "$internal/plugins/rehypeFrontmatter";
 import { rehypeEscapeBraces } from "$internal/plugins/rehypeEscapeBraces";
 
 // Types
@@ -28,7 +29,9 @@ const filterPlugins = (plugins: PaperfeelOptions["plugins"], filter: string) => 
 /**
     Creates an instance of a Markdown processor.
 */
-export const createMarkdownProcessor = (
+export const processMarkdown = async (
+    meta: Record<string, any>,
+    markdown: string,
     options: Pick<PaperfeelOptions, "plugins" | "escape">
 ) => {
     const { plugins, escape } = options;
@@ -44,6 +47,9 @@ export const createMarkdownProcessor = (
         })
         .use(rehypeRaw)
         .use(rehypeComponents)
+        .use(rehypeFrontmatter, {
+            meta
+        })
         .use(rehypeUserPlugins)
         .use(rehypeEscapeBraces, {
             selectors: [
@@ -55,5 +61,7 @@ export const createMarkdownProcessor = (
             allowDangerousHtml: true
         });
 
-    return processor;
+    const output = await processor.process(markdown);
+
+    return output.value.toString();
 };

@@ -1,4 +1,7 @@
-import { createMarkdownProcessor } from "$internal/markdown";
+import matter from "gray-matter";
+
+// Internal
+import { processMarkdown } from "$internal/markdown";
 
 // Types
 import type { PreprocessorGroup } from "svelte/compiler";
@@ -32,23 +35,17 @@ export type PaperfeelOptions = {
 */
 export const preprocessor = (
     options: Omit<PaperfeelOptions, "svelte"> = {}
-): PreprocessorGroup => {
-    const markdownProcessor = createMarkdownProcessor(options);
-
-    return {
-        name: "paperfeel",
-        async markup({ filename, content }) {
-            if(!filename?.endsWith(".md")) {
-                return;
-            }
-
-            // TODO gray-matter
-
-            const output = await markdownProcessor.process(content);
-            
-            return {
-                code: output.value.toString()
-            };
+): PreprocessorGroup => ({
+    name: "paperfeel",
+    async markup({ filename, content }) {
+        if(!filename?.endsWith(".md")) {
+            return;
         }
-    };
-};
+
+        const { data: meta, content: markdown } = matter(content);
+        
+        return {
+            code: await processMarkdown(meta, markdown, options)
+        };
+    }
+});
