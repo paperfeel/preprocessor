@@ -51,6 +51,25 @@ const config = {
 export default config;
 ```
 
+Then add pages or components that end in `.md`:
+
+```
+---
+title: My First Page
+---
+
+<script lang="ts">
+    import Foo from "$lib/components/Foo.svelte";
+</script>
+
+# {meta.title}
+This is some example content!
+
+<div>
+    <Foo/>
+</div>
+```
+
 <img src="https://raw.githubusercontent.com/paperfeel/.github/main/profile/seperator.png" alt="Seperator"/>
 
 ## License
