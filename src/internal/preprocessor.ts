@@ -6,6 +6,7 @@ import { processMarkdown } from "$internal/markdown";
 // Types
 import type { PreprocessorGroup } from "svelte/compiler";
 import type { VitePreprocessOptions } from "@sveltejs/vite-plugin-svelte";
+import type { GrayMatterOption } from "gray-matter";
 import type { Plugin, Settings as PluginSettings } from "unified";
 
 /**
@@ -25,6 +26,11 @@ export type PaperfeelOptions = {
     escape?: string[];
 
     /**
+        Options passed to `gray-matter`.
+    */
+    frontMatter?: GrayMatterOption<string, any>;
+
+    /**
         Options passed to `@sveltejs/vite-plugin-svelte`.
     */
     svelte?: VitePreprocessOptions;
@@ -42,7 +48,10 @@ export const preprocessor = (
             return;
         }
 
-        const { data: meta, content: markdown } = matter(content);
+        const { data: meta, content: markdown } = matter(
+            content,
+            options.frontMatter
+        );
         
         return {
             code: await processMarkdown(meta, markdown, options)
