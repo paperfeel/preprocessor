@@ -14,7 +14,8 @@ import type { Plugin, Settings as PluginSettings } from "unified";
 */
 export type PaperfeelOptions = {
     /**
-        Plugins passed to `unified.js`.
+        Plugins passed to `unified.js`. This preprocessor automatically sorts plugins
+        and puts `remark` plugins in front of `rehype` plugins.
     */
     plugins?: (Plugin | [ Plugin, PluginSettings ])[];
 
