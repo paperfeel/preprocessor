@@ -12,6 +12,9 @@ import { rehypeEscapeBraces } from "$internal/plugins/rehypeEscapeBraces";
 // Types
 import type { PaperfeelOptions } from "$internal/preprocessor";
 
+let remarkUserPlugins: PaperfeelOptions["plugins"] = undefined;
+let rehypeUserPlugins: PaperfeelOptions["plugins"] = undefined;
+
 /**
     Filters user plugins.
 */
@@ -36,8 +39,8 @@ export const processMarkdown = async (
 ) => {
     const { plugins, escape } = options;
 
-    const remarkUserPlugins = filterPlugins(plugins, "remark");
-    const rehypeUserPlugins = filterPlugins(plugins, "rehype");
+    remarkUserPlugins ||= filterPlugins(plugins, "remark");
+    rehypeUserPlugins ||= filterPlugins(plugins, "rehype");
 
     const processor = unified()
         .use(remarkParse)
