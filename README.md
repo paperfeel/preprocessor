@@ -163,6 +163,7 @@ Markdown is primarily for writing content &mdash; if you need to handle state, i
 > If `span.katex-display` is not added to `escape` in the config, Svelte will try to parse content inside curly brackets as JavaScript, which will ultimately fail to render.
 
 ```js
+// ...
 paperfeel({
     plugins: [
         remarkMath,
@@ -171,7 +172,8 @@ paperfeel({
     escape: [
         "span.katex-display"
     ]
-}
+}),
+// ...
 ```
 
 <img src="https://raw.githubusercontent.com/paperfeel/.github/main/profile/seperator.png" alt="Seperator"/>
