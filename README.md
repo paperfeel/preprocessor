@@ -81,7 +81,7 @@ This is some example content!
 
 ```svelte
 <script>
-    import Foo, { meta } from "./Foo.svelte";
+    import Foo, { meta } from "./Foo.md";
 </script>
 ```
 
