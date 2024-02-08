@@ -136,7 +136,7 @@ Markdown is primarily for writing content &mdash; if you need to handle state, i
     let counter = 0;
     
     const increment = () => {
-        counter++
+        counter++;
     };
 </script>
 
