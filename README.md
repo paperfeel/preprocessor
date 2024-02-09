@@ -85,6 +85,18 @@ This is some example content!
 </script>
 ```
 
+To further enhance your developer experience with VS Code and Paperfeel, you can associate Markdown files with the Svelte syntax in the workspace settings:
+
+```json
+{
+  "files.associations": {
+    "**/src/**/*.md": "svelte"
+  }
+}
+```
+
+This way, only Markdown files in the `src` directory will have Svelte autocomplete and syntax highlighting features, leaving files like `README.md` intact.
+
 <img src="https://raw.githubusercontent.com/paperfeel/.github/main/profile/seperator.png" alt="Seperator"/>
 
 ## API
