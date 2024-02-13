@@ -139,6 +139,17 @@ Due to the [underlying HTML parser](https://github.com/inikulin/parse5) that is 
 </div>
 ```
 
+### Avoid Naming Your Components Like HTML Tags
+Currently, all non-standard HTML tag names (i.e. tag names not listed in the [`html-tag-names`](https://github.com/wooorm/html-tag-names) package) are automatically capitalized by this preprocessor. During the parsing process, a component like `H1` is converted to `h1`, a standard HTML tag, and is not recognized by this preprocessor as a Svelte component.
+
+```svelte
+<!-- bad -->
+<H1>My Heading</H1>
+
+<!-- good -->
+<Heading1>My Heading</Heading1>
+```
+
 ### Keep State Handling Minimal
 Markdown is primarily for writing content &mdash; if you need to handle state, it's best to put it in a separate Svelte component and import it into your Markdown.
 
