@@ -42,7 +42,7 @@ export const processMarkdown = async (
     remarkUserPlugins ||= filterPlugins(plugins, "remark");
     rehypeUserPlugins ||= filterPlugins(plugins, "rehype");
 
-    const processor = unified()
+    const file = await unified()
         .use(remarkParse)
         .use(remarkUserPlugins)
         .use(remarkRehype, {
@@ -62,9 +62,8 @@ export const processMarkdown = async (
         })
         .use(rehypeStringify, {
             allowDangerousHtml: true
-        });
+        })
+        .process(markdown);
 
-    const output = await processor.process(markdown);
-
-    return output.value.toString();
+    return file.toString();
 };
