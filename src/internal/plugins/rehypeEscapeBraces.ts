@@ -38,10 +38,7 @@ const isText = (node: Node): node is Text => {
 */
 const escapeNode = (node: Node) => {
     if(isElement(node)) {
-        for(const child of node.children) {
-            escapeNode(child);
-        }
-
+        node.children.forEach(escapeNode);
         return;
     }
 
