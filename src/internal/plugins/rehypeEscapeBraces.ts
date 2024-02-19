@@ -47,10 +47,10 @@ const escapeNode = (node: Node) => {
 
     if(isText(node)) {
         node.value = node.value
-            .replaceAll("{", `\0\0"{"\0`)
-            .replaceAll("}", `\0\0"}"\0`)
-            .replaceAll("\0\0", "{")
-            .replaceAll("\0", "}");
+            .replaceAll("{", `\0l"{"\0r`)
+            .replaceAll("}", `\0l"}"\0r`)
+            .replaceAll("\0l", "{")
+            .replaceAll("\0r", "}");
     }
 };
 
